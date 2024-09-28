@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol.Plugins;
 using taxiRideManagementBackend.Models;
 
 namespace taxiRideManagementBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[EnableCors(PolicyName = "adminPolicy")]
     public class UsersController : ControllerBase
     {
         private readonly TaxiRideManagementDbContext _context = new TaxiRideManagementDbContext();
@@ -82,7 +85,7 @@ namespace taxiRideManagementBackend.Controllers
 
         // POST: api/Users
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("Register")]
         public async Task<ActionResult<User>> PostUser(User user)
         {
           if (_context.Users == null)
@@ -119,5 +122,45 @@ namespace taxiRideManagementBackend.Controllers
         {
             return (_context.Users?.Any(e => e.UserId == id)).GetValueOrDefault();
         }
+
+
+
+        // POST: api/Users/Login
+        [HttpPost("Login")]
+        public async Task<ActionResult<bool>> Login([FromBody] LoginRequest loginRequest)
+        {
+            if (loginRequest == null || string.IsNullOrWhiteSpace(loginRequest.UserName) || string.IsNullOrWhiteSpace(loginRequest.Password))
+            {
+                return BadRequest("Invalid login request.");
+            }
+
+            if (_context == null || _context.Users == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Find the user by UserName
+            //var user = await _context.Users.FindAsync(loginRequest.UserName);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == loginRequest.UserName);
+
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Check if the password matches
+            bool isPasswordValid = loginRequest.Password == user.UserPassword;
+
+            
+
+            if (!isPasswordValid)
+            {
+                return Unauthorized("Invalid credentials.");
+            }
+
+            return Ok(true); // Login successful
+        }
+
+
     }
 }
