@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "IOE2KmrCrynMF4o+s85IkL3NGshXAFAYw87dnIm8bNI=",
+  "Source": "taxiRideManagementBackend",
+  "BasePath": "_content/taxiRideManagementBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
