@@ -1,0 +1,31 @@
+<div class="contact-container">
+    <h1>Contact Us</h1>
+  
+    <div class="contact-methods">
+      <h2>How to Reach Us</h2>
+      <p>
+        Call us at: <strong>7022805168</strong><br />
+        Email us at: 
+        <a href="mailto:sanjanaananthu18@gmail.com">"sanjanaananthu18&#64;gmail.com"</a>
+      </p>
+    </div>
+  
+    <div class="callback-form">
+      <h2>Request a Callback</h2>
+      <form (ngSubmit)="onSubmit()" #callbackForm="ngForm">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" required [(ngModel)]="contactData.name" name="name" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" required [(ngModel)]="contactData.email" name="email" />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" required [(ngModel)]="contactData.message" name="message"></textarea>
+        </div>
+        <button type="submit">Request Callback</button>
+      </form>
+    </div>
+  </div>

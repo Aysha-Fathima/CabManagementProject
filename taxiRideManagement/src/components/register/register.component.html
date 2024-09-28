@@ -1,0 +1,12 @@
+<br>
+<br>
+<div class="register-container">
+    <h1>Create Account</h1>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <input type="text" placeholder="Username" required ngModel name="username">
+      <input type="email" placeholder="Email" required ngModel name="email">
+      <input type="password" placeholder="Password" required ngModel name="password">
+      <button type="submit">Register</button>
+    </form>
+  </div>
+  
