@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Desktop\\Project-KPMG\\taxiRideManagementBackend\\taxiRideManagementBackend\\taxiRideManagementBackend.csproj": {}
+    "C:\\Users\\Administrator\\Desktop\\CabManagementProject\\taxiRideManagementBackend\\taxiRideManagementBackend\\taxiRideManagementBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Desktop\\Project-KPMG\\taxiRideManagementBackend\\taxiRideManagementBackend\\taxiRideManagementBackend.csproj": {
+    "C:\\Users\\Administrator\\Desktop\\CabManagementProject\\taxiRideManagementBackend\\taxiRideManagementBackend\\taxiRideManagementBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\Project-KPMG\\taxiRideManagementBackend\\taxiRideManagementBackend\\taxiRideManagementBackend.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\CabManagementProject\\taxiRideManagementBackend\\taxiRideManagementBackend\\taxiRideManagementBackend.csproj",
         "projectName": "taxiRideManagementBackend",
-        "projectPath": "C:\\Users\\Administrator\\Desktop\\Project-KPMG\\taxiRideManagementBackend\\taxiRideManagementBackend\\taxiRideManagementBackend.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Desktop\\CabManagementProject\\taxiRideManagementBackend\\taxiRideManagementBackend\\taxiRideManagementBackend.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Desktop\\Project-KPMG\\taxiRideManagementBackend\\taxiRideManagementBackend\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Desktop\\CabManagementProject\\taxiRideManagementBackend\\taxiRideManagementBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HnQGNJscVHQHbYN8t+9HqTAPM45G4E0J/85s2fEwlXnL2I8L8ETeHGMDxyuhf07MO8L+q1EYBUs1Np+S9RYcgw==",
+  "dgSpecHash": "Fo880RZmn7grelPrqBgFf/vZi4P1ErB4QvU0P3se+StSmfb5AatyalXSHBQcj7Nszx3bemArjwJEUtOoKlXzMg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\Project-KPMG\\taxiRideManagementBackend\\taxiRideManagementBackend\\taxiRideManagementBackend.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\CabManagementProject\\taxiRideManagementBackend\\taxiRideManagementBackend\\taxiRideManagementBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
