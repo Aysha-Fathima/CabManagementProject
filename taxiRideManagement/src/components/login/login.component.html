@@ -5,13 +5,11 @@
 
 <div class="login-container">
     <h1>Welcome Back</h1>
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-      <input type="username" placeholder="Username" required ngModel name="username">
-      <input type="password" placeholder="Password" required ngModel name="password">
+    <form #loginForm="ngForm" (ngSubmit)="restData.loginDetails(loginForm)">
+      <input type="text" placeholder="Username" required ngModel name="userName">
+      <input type="password" placeholder="Password" required ngModel name="Password">
       <button type="submit">Login</button>
     </form>
   </div>
 
-
-  
 </div>

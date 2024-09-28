@@ -38,7 +38,7 @@
     height: 400px;
     width: 1245px;
     background-image: fit;
-    background-image: url('../../../public/images/login_img.jpg');
+    background-image: url('../../../src/assets/media/login_img.jpg');
     background-repeat: no-repeat;
     background-size: fit;
     /* background-position: 500px; */

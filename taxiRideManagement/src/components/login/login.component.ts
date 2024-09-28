@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { TaxiRideService } from '../../services/taxi-ride.service';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,16 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  onSubmit() {
-    // Handle login logic here
-    console.log('Form submitted');
-    alert('Submitted')
+  // onSubmit() {
+  //   // Handle login logic here
+  //   console.log('Form submitted');
+  //   alert('Submitted')
+  // }
+
+  restData:TaxiRideService;
+
+
+  constructor(restDataref:TaxiRideService) {
+    this.restData=restDataref;
   }
 }

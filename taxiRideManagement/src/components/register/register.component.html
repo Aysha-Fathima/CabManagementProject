@@ -2,10 +2,11 @@
 <br>
 <div class="register-container">
     <h1>Create Account</h1>
-    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
-      <input type="text" placeholder="Username" required ngModel name="username">
-      <input type="email" placeholder="Email" required ngModel name="email">
-      <input type="password" placeholder="Password" required ngModel name="password">
+    <form #registerForm="ngForm" (ngSubmit)="restData.registerDetails(registerForm)" >
+      <input type="text" placeholder="Username" required ngModel name="userName">
+      <input type="tel" placeholder="Phone Number" required ngModel name="phoneNum">
+      <input type="email" placeholder="Email" required ngModel name="userEmailId">
+      <input type="password" placeholder="Password" required ngModel name="userPassword">
       <button type="submit">Register</button>
     </form>
   </div>
