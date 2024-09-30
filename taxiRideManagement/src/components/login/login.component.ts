@@ -22,7 +22,11 @@ export class LoginComponent {
   restData:TaxiRideService;
 
 
-  constructor(restDataref:TaxiRideService) {
+  constructor(restDataref:TaxiRideService,private router:Router) {
     this.restData=restDataref;
+  }
+
+  redirecttohome(){
+    this.router.navigateByUrl("home");
   }
 }

@@ -83,8 +83,47 @@ export class TaxiRideService {
      ).subscribe(); // Subscribe at the end to trigger the request
    }
 
+
+
+
+
+   //User
+
+
+  //  getUsers
+
+//   getAllActiveBookingDetails()
+//  {
+//    this._http.get("https://localhost:7068/api/TaxiRideBookings")
+//    .subscribe((data=>{
+//      this.activebooking=data;
+//    }))
+//  }
+
+
+   activebooking:any;
+
+   getAllActiveBookingDetails()
+ {
+   this._http.get("https://localhost:7068/api/TaxiRideBookings")
+   .subscribe((data=>{
+     this.activebooking=data;
+   }))
+ }
+ 
+ searchData:any;
+ 
+ searchActiveBookingByStatus(){
+   this._http.get("https://localhost:7068/api/TaxiRideBookings/booked")
+   .subscribe((data=>{
+     this.searchData=data;
+   }))
+   
+ }
+
     constructor(_httpRef:HttpClient) {
       this._http=_httpRef;
       
      }
+    
 }

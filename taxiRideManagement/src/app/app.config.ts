@@ -6,8 +6,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient } from '@angular/common/http';
 import { TaxiRideService } from '../services/taxi-ride.service';
 import { AdminservicesService } from '../services/adminservices.service';
+import { MapsService } from '../services/maps.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideAnimationsAsync(), provideHttpClient(),TaxiRideService,
-  AdminservicesService]
+  AdminservicesService,MapsService]
 };

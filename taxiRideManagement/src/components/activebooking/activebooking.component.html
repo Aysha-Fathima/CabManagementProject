@@ -1,0 +1,46 @@
+ 
+  <button (click)="restUserData.getAllActiveBookingDetails()">get Users</button>
+
+  <table border="1">
+      <tr>
+          <th> Source </th>
+          <th> Destinaton </th>
+          <th> Fare </th>
+          <th> Status </th>
+          
+  
+      </tr>
+      <tr *ngFor="let p of restUserData.activebooking ">
+          <td> {{p.Source}} </td>
+          <td> {{p.Destinaton}} </td>
+          <td> {{p.Fare}} </td>
+          <td> {{p.Status}} </td>
+      </tr>
+  </table> 
+  
+  
+  
+  <br>
+  <hr/>
+  <br>
+  
+  
+  
+  <button (click)="restUserData.searchActiveBookingByStatus()">search</button>
+  <table border="1">
+      <tr>
+          <th> Source </th>
+          <th> Destinaton </th>
+          <th> Fare </th>
+          <th> Status </th>
+          
+  
+      </tr>
+      <tr *ngFor="let p of restUserData.searchData;
+      ">
+          <td> {{p.Source}} </td>
+          <td> {{p.Destinaton}} </td>
+          <td> {{p.Fare}} </td>
+          <td> {{p.Status}} </td>
+      </tr>
+  </table> 

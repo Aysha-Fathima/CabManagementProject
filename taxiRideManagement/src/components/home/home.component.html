@@ -1,29 +1,81 @@
-<br>
+<div class="background-container">
+    <img src="/images/781965.jpg" alt="Background Image" class="background-image" />
+</div>
+
 <h2>Best Cabs! Best Fare</h2>
 
 <div class="container">
+    <h3 class="subtitle">Best Cab! Best Fare</h3>
     <h3>Select Locations</h3>
     
     <div class="dropdown-container">
-      <div class="dropdown">
-        <label for="pickup">Pickup Location:</label>
-        <select id="pickup" [(ngModel)]="selectedPickupLocation">
-          <option value="">Select Pickup Location</option>
-          <option *ngFor="let location of pickupLocations" [value]="location">{{ location }}</option>
-        </select>
-      </div>
-  
-      <div class="dropdown">
-        <label for="drop">Drop Location:</label>
-        <select id="drop" [(ngModel)]="selectedDropLocation">
-          <option value="">Select Drop Location</option>
-          <option *ngFor="let location of dropLocations" [value]="location">{{ location }}</option>
-        </select>
-      </div>
+        <div class="dropdown">
+            <label for="pickup">Pickup Location:</label>
+            <select id="pickup" [(ngModel)]="selectedPickupLocation">
+                <option value="">Select Pickup Location</option>
+                <option *ngFor="let location of pickupLocations" [value]="location">{{ location }}</option>
+            </select>
+        </div>
+
+        <div class="dropdown">
+            <label for="drop">Drop Location:</label>
+            <select id="drop" [(ngModel)]="selectedDropLocation">
+                <option value="">Select Drop Location</option>
+                <option *ngFor="let location of dropLocations" [value]="location">{{ location }}</option>
+            </select>
+        </div>
     </div>
+
     <button class="search-button" (click)="searchCabs()">Search Cabs</button>
-  </div>
+</div>
   
+
+
+  <button (click)="restUserData.getAllActiveBookingDetails()">get Users</button>
+
+  <table border="1">
+      <tr>
+          <th> Source </th>
+          <th> Destinaton </th>
+          <th> Fare </th>
+          <th> Status </th>
+          
+  
+      </tr>
+      <tr *ngFor="let p of restUserData.activebooking ">
+          <td> {{p.pickUpLocation}} </td>
+          <td> {{p.dropLocation}} </td>
+          <td> {{p.fare}} </td>
+          <td> {{p.status}} </td>
+      </tr>
+  </table> 
+  
+  
+  
+  <br>
+  <hr/>
+  <br>
+  
+  
+  
+  <button (click)="restUserData.searchActiveBookingByStatus()">search</button>
+  <table border="1">
+      <tr>
+          <th> Source </th>
+          <th> Destinaton </th>
+          <th> Fare </th>
+          <th> Status </th>
+          
+  
+      </tr>
+      <tr *ngFor="let p of restUserData.searchData;
+      ">
+          <td> {{p.pickUpLocation}} </td>
+          <td> {{p.dropLocation}} </td>
+          <td> {{p.fare}} </td>
+          <td> {{p.status}} </td>
+      </tr>
+  </table> 
   
 
 

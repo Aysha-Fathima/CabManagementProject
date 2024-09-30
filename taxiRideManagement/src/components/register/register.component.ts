@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { TaxiRideService } from '../../services/taxi-ride.service';
 
 @Component({
@@ -11,16 +11,15 @@ import { TaxiRideService } from '../../services/taxi-ride.service';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  // onSubmit() {
-  //   // Handle registration logic here
-  //   console.log('Registration form submitted');
-  //   alert('Registered');
-  // }
-
   restData:TaxiRideService;
 
 
-  constructor(restDataref:TaxiRideService) {
+  constructor(restDataref:TaxiRideService,private router:Router) {
     this.restData=restDataref;
   }
+
+  redirecttologin(){
+    this.router.navigateByUrl("login");
+  }
 }
+ 
