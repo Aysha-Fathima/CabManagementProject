@@ -1,0 +1,103 @@
+<!-- <button></button> -->
+<button (click)="restUserData.getAllDriverDetails()">get Users</button>
+
+ <!-- <div *ngfor="let p in restUserData.usersdata">
+    <h3> ID: {{p.driverUserId}} </h3> -->
+    <!-- <h3> ID: {{restUser}} </h3>
+    <h3> ID: {{restUserData.usersdata.driverPhoneNumber}} </h3>
+    <h3> ID: {{restUserData.usersdata.driverVehicleNumber}} </h3> -->
+ <!-- </div> -->
+    <!-- <h3> Name: {{restpdata.searchData.cName}} </h3>
+    <h3> Balance: {{restpdata.searchData.cBalance}} </h3>
+    <h3> Address: {{restpdata.searchData.cAddress}} </h3> -->
+
+    <table border="1">
+        <tr>
+            <th>Driver id</th>
+            <th>Driver Name</th>
+            <th>driver Phone Number</th>
+            <th>driver VehicleNumber</th>
+            <!-- <th>categories</th>
+            <th>categories</th>
+            <th>image</th> -->
+            
+    
+        </tr>
+        <tr *ngFor="let p of restUserData.usersdata ">
+            <td> {{p.driverUserId}} </td>
+            <td> {{p.driverName}} </td>
+            <td> {{p.driverPhoneNumber}} </td>
+            <td> {{p.driverVehicleNumber}} </td>
+            <!-- <td> {{p.description}} </td>
+            <td> {{p.category}} </td>  
+            <td> {{p.image}} </td>
+            <td> {{p.rating}} </td>
+            <td> {{p.rating.rate}} </td>
+            <td> {{p.rating.count}} </td> -->
+        </tr>
+    </table> 
+    
+
+
+<br>
+<hr/>
+<br>
+
+<h3>Add Driver</h3>
+<form #addcustomer="ngForm" (ngSubmit)="restUserData.addDriverFromFORM(addcustomer)">
+
+    <!-- <label >Driver Id</label>
+    <input type="number" name="driverUserId" ngModel/>
+    <br> -->
+
+    <label >Driver Name</label>
+    <input type="text" name="driverName" ngModel>
+    <br>
+
+    <label >Driver Phone Number</label>
+    <input type="number" name="driverPhoneNumber" ngModel>
+    <br>
+
+    <label >Driver Vehicle Number</label>
+    <input type="text" name="driverVehicleNumber" ngModel>
+    <br>
+
+    <button type="submit">ADD</button>
+
+</form>
+
+<br>
+<hr/>
+<br>
+
+
+<form #updatecustomer="ngForm" (ngSubmit)="restUserData.updateDriverDetails(updatecustomer)">
+
+    <label >Driver Id</label>
+    <input type="number" name="driverUserId" ngModel>
+    <br>
+
+    <label >Driver Name</label>
+    <input type="text" name="driverName" ngModel>
+    <br>
+
+    <label >Driver Phone Number</label>
+    <input type="number" name="driverPhoneNumber" ngModel>
+    <br>
+
+    <label >Driver Vehicle Number</label>
+    <input type="text" name="driverVehicleNumber" ngModel>
+    <br>
+
+    <button type="submit">UPDATE</button>
+
+</form>
+
+<h1> Delete User</h1>
+
+<form #delInfo="ngForm" (ngSubmit)="restUserData.delDetails(delInfo)">
+    <label>Driver ID</label>
+    <input type="number" name="driverUserId" ngModel>
+    <br>
+    <input type="submit" value="Delete">
+</form>

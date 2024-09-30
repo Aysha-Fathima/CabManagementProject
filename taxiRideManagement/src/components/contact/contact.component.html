@@ -12,18 +12,18 @@
   
     <div class="callback-form">
       <h2>Request a Callback</h2>
-      <form (ngSubmit)="onSubmit()" #callbackForm="ngForm">
+      <form (ngSubmit)="restData.contactDetails(callbackForm)" #callbackForm="ngForm">
         <div>
           <label for="name">Name</label>
-          <input type="text" id="name" required [(ngModel)]="contactData.name" name="name" />
+          <input type="text" id="name" required ngModel name="Cname" />
         </div>
         <div>
           <label for="email">Email</label>
-          <input type="email" id="email" required [(ngModel)]="contactData.email" name="email" />
+          <input type="email" id="email" required ngModel name="email" />
         </div>
         <div>
           <label for="message">Message</label>
-          <textarea id="message" required [(ngModel)]="contactData.message" name="message"></textarea>
+          <textarea id="message" required ngModel name="Cmessage"></textarea>
         </div>
         <button type="submit">Request Callback</button>
       </form>

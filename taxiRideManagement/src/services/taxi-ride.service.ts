@@ -20,16 +20,16 @@ export class TaxiRideService {
 
   // private apiUrl = 'https://localhost:7068/api/Users';
 
-
-
   //Login
   loginDetails(loginInfo:any)
   {
+    // console.log(loginInfo.value.userRole);
    return this._http.post("https://localhost:7068/api/Users/Login",loginInfo.value,this.httpOptions).pipe(
       tap(response => {
         // Handle success response
         console.log("Success", response);
         alert("Login Successful");
+        //this.router.navigate(['/home']);
         // this.router.navigate(['/your-target-component']); // Replace with your target route
       }),
       catchError(error => {
@@ -63,7 +63,28 @@ export class TaxiRideService {
     ).subscribe(); // Subscribe at the end to trigger the request
   }
 
+   //ContactUs
+   contactDetails(loginInfo:any)
+   {
+     // console.log(loginInfo.value.userRole);
+    return this._http.post("https://localhost:7068/api/Contactus",loginInfo.value,this.httpOptions).pipe(
+       tap(response => {
+         // Handle success response
+         console.log("Success", response);
+         alert("Query submitted");
+         // this.router.navigate(['/your-target-component']); // Replace with your target route
+       }),
+       catchError(error => {
+         // Handle error response
+         console.error("Error", error);
+         alert(error.error || "Sorrryyyyy, try again :(");
+         return throwError(() => new Error('test')); // Rethrow the error for further handling if needed
+       })
+     ).subscribe(); // Subscribe at the end to trigger the request
+   }
+
     constructor(_httpRef:HttpClient) {
       this._http=_httpRef;
+      
      }
 }

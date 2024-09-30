@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { TaxiRideService } from '../../services/taxi-ride.service';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
@@ -19,7 +19,6 @@ export class LoginComponent {
   //   console.log('Form submitted');
   //   alert('Submitted')
   // }
-
   restData:TaxiRideService;
 
 

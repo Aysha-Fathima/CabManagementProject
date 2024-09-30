@@ -1,3 +1,29 @@
-<p>Home Works</p>
+<br>
+<h2>Best Cabs! Best Fare</h2>
 
-<router-outlet></router-outlet>
+<div class="container">
+    <h3>Select Locations</h3>
+    
+    <div class="dropdown-container">
+      <div class="dropdown">
+        <label for="pickup">Pickup Location:</label>
+        <select id="pickup" [(ngModel)]="selectedPickupLocation">
+          <option value="">Select Pickup Location</option>
+          <option *ngFor="let location of pickupLocations" [value]="location">{{ location }}</option>
+        </select>
+      </div>
+  
+      <div class="dropdown">
+        <label for="drop">Drop Location:</label>
+        <select id="drop" [(ngModel)]="selectedDropLocation">
+          <option value="">Select Drop Location</option>
+          <option *ngFor="let location of dropLocations" [value]="location">{{ location }}</option>
+        </select>
+      </div>
+    </div>
+    <button class="search-button" (click)="searchCabs()">Search Cabs</button>
+  </div>
+  
+  
+
+

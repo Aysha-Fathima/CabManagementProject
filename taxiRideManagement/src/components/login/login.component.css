@@ -35,12 +35,16 @@
   }
   
   #logindiv{
+    
     height: 400px;
-    width: 1245px;
-    background-image: fit;
+    /* width: 1245px; */
+    width: 100%;
+    /* background-image: fit; */
     background-image: url('../../../src/assets/media/login_img.jpg');
     background-repeat: no-repeat;
-    background-size: fit;
+    /* background-size: fit; */
+    background-size: cover;
+    background-position: center;
     /* background-position: 500px; */
     
   }
