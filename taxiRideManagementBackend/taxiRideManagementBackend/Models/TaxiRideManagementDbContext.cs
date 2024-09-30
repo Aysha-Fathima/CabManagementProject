@@ -15,9 +15,15 @@ public partial class TaxiRideManagementDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Contactu> Contactus { get; set; }
+
     public virtual DbSet<Driver> Drivers { get; set; }
 
+    public virtual DbSet<TaxiLocation> TaxiLocations { get; set; }
+
     public virtual DbSet<TaxiRideBooking> TaxiRideBookings { get; set; }
+
+    public virtual DbSet<TaxiServicebleLocation> TaxiServicebleLocations { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
@@ -27,9 +33,30 @@ public partial class TaxiRideManagementDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Contactu>(entity =>
+        {
+            entity.HasKey(e => e.ConId).HasName("PK__contactu__908C8FCBE7B03812");
+
+            entity.ToTable("contactus");
+
+            entity.Property(e => e.ConId).HasColumnName("conId");
+            entity.Property(e => e.Cmessage)
+                .HasMaxLength(300)
+                .IsUnicode(false)
+                .HasColumnName("cmessage");
+            entity.Property(e => e.Cname)
+                .HasMaxLength(30)
+                .IsUnicode(false)
+                .HasColumnName("cname");
+            entity.Property(e => e.Email)
+                .HasMaxLength(30)
+                .IsUnicode(false)
+                .HasColumnName("email");
+        });
+
         modelBuilder.Entity<Driver>(entity =>
         {
-            entity.HasKey(e => e.DriverUserId).HasName("PK__drivers__42B680321703FF57");
+            entity.HasKey(e => e.DriverUserId).HasName("PK__drivers__42B680328247288C");
 
             entity.ToTable("drivers");
 
@@ -39,15 +66,38 @@ public partial class TaxiRideManagementDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("driverName");
             entity.Property(e => e.DriverPhoneNumber).HasColumnName("driverPhoneNumber");
+            entity.Property(e => e.DriverStatus)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("driverStatus");
             entity.Property(e => e.DriverVehicleNumber)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("driverVehicleNumber");
         });
 
+        modelBuilder.Entity<TaxiLocation>(entity =>
+        {
+            entity.HasKey(e => e.LocationId).HasName("PK__taxiLoca__30646B6EE66826F8");
+
+            entity.ToTable("taxiLocations");
+
+            entity.Property(e => e.LocationId).HasColumnName("locationId");
+            entity.Property(e => e.Latitude)
+                .HasColumnType("decimal(9, 6)")
+                .HasColumnName("latitude");
+            entity.Property(e => e.LocationName)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("locationName");
+            entity.Property(e => e.Longitude)
+                .HasColumnType("decimal(9, 6)")
+                .HasColumnName("longitude");
+        });
+
         modelBuilder.Entity<TaxiRideBooking>(entity =>
         {
-            entity.HasKey(e => e.TaxiRideId).HasName("PK__taxiRide__4F40852F52CCA744");
+            entity.HasKey(e => e.TaxiRideId).HasName("PK__taxiRide__4F40852F74B1768C");
 
             entity.ToTable("taxiRideBooking");
 
@@ -70,16 +120,35 @@ public partial class TaxiRideManagementDbContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.TaxiRideBookings)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__taxiRideB__custo__3C69FB99");
+                .HasConstraintName("FK__taxiRideB__custo__46E78A0C");
 
             entity.HasOne(d => d.Driver).WithMany(p => p.TaxiRideBookings)
                 .HasForeignKey(d => d.DriverId)
-                .HasConstraintName("FK__taxiRideB__drive__3D5E1FD2");
+                .HasConstraintName("FK__taxiRideB__drive__47DBAE45");
+        });
+
+        modelBuilder.Entity<TaxiServicebleLocation>(entity =>
+        {
+            entity.HasKey(e => e.LocationId).HasName("PK__taxiServ__30646B6E3AF2EA25");
+
+            entity.ToTable("taxiServicebleLocations");
+
+            entity.Property(e => e.LocationId).HasColumnName("locationId");
+            entity.Property(e => e.Latitude)
+                .HasColumnType("decimal(9, 6)")
+                .HasColumnName("latitude");
+            entity.Property(e => e.Location)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("location");
+            entity.Property(e => e.Longitude)
+                .HasColumnType("decimal(9, 6)")
+                .HasColumnName("longitude");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__users__CB9A1CFF7F4CF5DC");
+            entity.HasKey(e => e.UserId).HasName("PK__users__CB9A1CFFD480DDB8");
 
             entity.ToTable("users");
 

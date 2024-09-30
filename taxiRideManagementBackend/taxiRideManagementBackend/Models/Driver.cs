@@ -13,5 +13,7 @@ public partial class Driver
 
     public string? DriverVehicleNumber { get; set; }
 
+    public string? DriverStatus { get; set; }
+
     public virtual ICollection<TaxiRideBooking> TaxiRideBookings { get; set; } = new List<TaxiRideBooking>();
 }

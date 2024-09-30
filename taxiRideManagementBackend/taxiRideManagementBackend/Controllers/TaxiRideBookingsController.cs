@@ -51,6 +51,27 @@ namespace taxiRideManagementBackend.Controllers
             return taxiRideBooking;
         }
 
+        [HttpGet("booked")]
+        public async Task<ActionResult<IEnumerable<TaxiRideBooking>>> GetBookedTaxiRideBookings()
+        {
+            if (_context.TaxiRideBookings == null)
+            {
+                return NotFound();
+            }
+
+            var bookedTaxiRideBookings = await _context.TaxiRideBookings
+                .Where(b => b.Status == "booked")
+                .ToListAsync();
+
+            if (bookedTaxiRideBookings == null || !bookedTaxiRideBookings.Any())
+            {
+                return NotFound();
+            }
+
+            return bookedTaxiRideBookings;
+        }
+
+
         // PUT: api/TaxiRideBookings/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -117,6 +138,34 @@ namespace taxiRideManagementBackend.Controllers
             return NoContent();
         }
 
+        [HttpPost("bookTaxi")]
+        public async Task<ActionResult<TaxiRideBooking>> PostTaxiRide(TaxiRideBooking taxiRideBooking)
+        {
+            if (_context.TaxiRideBookings == null)
+            {
+                return Problem("Entity is null.");
+            }
+
+
+            var idleDriver = await _context.Drivers
+                .Where(d => d.DriverStatus == "idle")
+                .FirstOrDefaultAsync();
+            Console.WriteLine(idleDriver);
+
+            if (idleDriver == null)
+            {
+                return Problem("No idle drivers available.");
+            }
+
+            taxiRideBooking.DriverId = idleDriver.DriverUserId;
+            idleDriver.DriverStatus = "ontrip";
+
+            _context.TaxiRideBookings.Add(taxiRideBooking);
+
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetTaxiRideBooking", new { id = taxiRideBooking.TaxiRideId }, taxiRideBooking);
+        }
         private bool TaxiRideBookingExists(int id)
         {
             return (_context.TaxiRideBookings?.Any(e => e.TaxiRideId == id)).GetValueOrDefault();
