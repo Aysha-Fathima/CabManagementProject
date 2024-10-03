@@ -1,19 +1,17 @@
 <br>
 <br>
 <div id="logindiv">
-<!-- <img src="images/login_img.jpg"/> -->
-
-<div class="login-container">
+  <h4>Are you an admin?</h4>
+  <button mat-raised-button color="primary" (click)="redirecttoadminLogInpage()" class="admin-button">Click Here</button>
+  
+  <div class="login-container">
     <h1>Welcome Back</h1>
     <form #loginForm="ngForm" (ngSubmit)="restData.loginDetails(loginForm)">
       <input type="text" placeholder="Username" required ngModel name="userName">
       <input type="password" placeholder="Password" required ngModel name="Password">
-      <button  type="submit" (click)="redirecttohome()">Login</button>
+      <button type="submit" mat-raised-button color="success">Login</button>
     </form>
   </div>
-
 </div>
 
-
-<a routerLink="/admin"></a>
 <router-outlet></router-outlet>

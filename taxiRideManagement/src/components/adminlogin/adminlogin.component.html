@@ -1,0 +1,15 @@
+<br>
+<br>
+<div id="logindiv">
+  <div class="login-container">
+    <h1>Welcome Back</h1>
+    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+      <input type="text" placeholder="Username" required ngModel name="username" class="input-field">
+      <input type="password" placeholder="Password" required ngModel name="password" class="input-field">
+      <button type="submit" class="login-button">Login</button>
+    </form>
+    <button routerLink="register" class="register-button">Sign Up</button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

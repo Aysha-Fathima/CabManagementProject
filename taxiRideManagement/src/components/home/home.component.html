@@ -1,6 +1,8 @@
-<div class="background-container">
-    <img src="/images/781965.jpg" alt="Background Image" class="background-image" />
-</div>
+<!-- <div class="background-container">
+    <div class="centered-background">
+    <img src="/images/login_img.jpg" alt="Background Image" class="background-image" width="300" height="200" />
+    </div>
+</div> -->
 
 <h2>Best Cabs! Best Fare</h2>
 
@@ -11,7 +13,7 @@
     <div class="dropdown-container">
         <div class="dropdown">
             <label for="pickup">Pickup Location:</label>
-            <select id="pickup" [(ngModel)]="selectedPickupLocation">
+            <select id="pickup" [(ngModel)]="SourceLocation">
                 <option value="">Select Pickup Location</option>
                 <option *ngFor="let location of pickupLocations" [value]="location">{{ location }}</option>
             </select>
@@ -19,19 +21,19 @@
 
         <div class="dropdown">
             <label for="drop">Drop Location:</label>
-            <select id="drop" [(ngModel)]="selectedDropLocation">
+            <select id="drop" [(ngModel)]="DestinationLocation">
                 <option value="">Select Drop Location</option>
                 <option *ngFor="let location of dropLocations" [value]="location">{{ location }}</option>
             </select>
         </div>
     </div>
 
-    <button class="search-button" (click)="searchCabs()">Search Cabs</button>
+    <button class="search-button" (click)="restUserData.farecalc(SourceLocation,DestinationLocation)">Search Cabs</button>
 </div>
   
 
 
-  <button (click)="restUserData.getAllActiveBookingDetails()">get Users</button>
+  <button mat-button (click)="restUserData.getAllActiveBookingDetails()">Booking History</button>
 
   <table border="1">
       <tr>
@@ -58,7 +60,7 @@
   
   
   
-  <button (click)="restUserData.searchActiveBookingByStatus()">search</button>
+  <button (click)="restUserData.searchActiveBookingByStatus()">search Active Rides</button>
   <table border="1">
       <tr>
           <th> Source </th>
@@ -76,6 +78,8 @@
           <td> {{p.status}} </td>
       </tr>
   </table> 
+
+  <app-maps></app-maps>
   
 
 

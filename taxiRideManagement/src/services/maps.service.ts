@@ -13,7 +13,11 @@ export class MapsService {
     this._http.get("https://localhost:7068/api/TaxiLocations")
     .subscribe((data)=>{
       this.userdata=data;
+      console.log(this.userdata.value)
     })
+
+    // console.log(this.userdata.value);
+    
   }
 
   constructor(_httpRef:HttpClient) {

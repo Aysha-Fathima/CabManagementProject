@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TaxiRideService } from '../../services/taxi-ride.service';
+import { TaxiRideService } from '../taxi-ride.service';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 

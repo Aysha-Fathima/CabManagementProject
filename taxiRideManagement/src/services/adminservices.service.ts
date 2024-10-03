@@ -10,6 +10,7 @@ export class AdminservicesService {
   addData:any;
   UpdateData:any;
   delData:any;
+  contactdata:any;
 
 _https:HttpClient;
 
@@ -65,6 +66,19 @@ delDetails(delInfo:any)
       alert("deleted");
     })
   }
+
+
+
+
+  getAllContactDetails()
+{
+  this._https.get("https://localhost:7068/api/Contactus")
+  .subscribe((data=>{
+    this.contactdata=data;
+  }))
+}
+
+  
 
 
 

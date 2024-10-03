@@ -1,4 +1,4 @@
-<div class="about-container">
+<!-- <div class="about-container">
     <div class="project-description">
       <h2>Project Description</h2>
       <p>
@@ -31,4 +31,33 @@
         <li>.NET(Rest API)</li>
       </ul>
     </div>
+  </div> -->
+
+
+
+  
+  
+  <div class="about-us-container">
+    <section class="project-info">
+      <h1>{{ projectInfo.title }}</h1>
+      <p>{{ projectInfo.description }}</p>
+    </section>
+  
+    <section class="team-section">
+      <h2>Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member" *ngFor="let member of teamMembers">
+          <!-- <img [src]="member.img" alt="{{ member.name }}"> -->
+          <h3>{{ member.name }}</h3>
+         
+        </div>
+      </div>
+    </section>
+  
+    <section class="tech-section">
+      <h2>Technologies Used</h2>
+      <ul>
+        <li *ngFor="let tech of technologies">{{ tech }}</li>
+      </ul>
+    </section>
   </div>

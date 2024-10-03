@@ -29,4 +29,18 @@ export class LoginComponent {
   redirecttohome(){
     this.router.navigateByUrl("home");
   }
+
+  redirecttoadminLogInpage(){
+    this.router.navigateByUrl("adminlogin");
+  }
+  onsubmit(form:any){
+    const { username, password} = form.value;
+
+    if (username === 'admin' && password === 'admin123'){
+      this.router.navigate(['/admin']);
+    } else {
+      
+    }
+
+  }
 }

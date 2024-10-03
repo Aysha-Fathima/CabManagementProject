@@ -1,0 +1,44 @@
+
+
+<div>
+    <h3>Booking Details</h3>
+    <table border="1" *ngIf="restUserData.fareData" >
+        <tr>
+            <th> Source </th>
+            <th> Destinaton </th>
+            <th> Fare </th>
+                        
+    
+        </tr>
+        <tr  >
+            <td> {{restUserData.fareData.source}} </td>
+            <td> {{restUserData.fareData.destination}} </td>
+            <td> {{restUserData.fareData.fare}} </td>
+            
+        </tr>
+    </table> 
+    <button type="submit" (click)="restUserData.addBookingTaxi()">BOOK CAB</button>
+
+    <h3>Taxi Booking Details</h3>
+<table border="1" *ngIf="restUserData.getTaxiDetails">
+  <tr>
+    <!-- <th>Pickup Location</th>
+    <th>Drop Location</th>
+    <th>Price</th>
+    <th>Status</th>
+    <th>Customer ID</th> -->
+    <th>Driver Slot Number</th>
+  </tr>
+  <tr>
+    <!-- <td>{{ restUserData.currentBooking.source}}</td>
+    <td>{{ restUserData.currentBooking.destination }}</td>
+    <td>{{ restUserData.currentBooking.fare }}</td>
+    <td>{{ restUserData.currentBooking.destination }}</td>
+    <td>{{ restUserData.currentBooking.customerId }}</td> -->
+    <td>{{ restUserData.getTaxiDetails }}</td>
+    <!-- <td>{{  }}</td> -->
+  </tr>
+</table>
+
+
+</div>

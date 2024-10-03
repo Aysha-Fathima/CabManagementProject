@@ -5,6 +5,8 @@ import { ContactComponent } from '../components/contact/contact.component';
 import { LoginComponent } from '../components/login/login.component';
 import { RegisterComponent } from '../components/register/register.component';
 import { AdminComponent } from '../components/admin/admin.component';
+import { AdminloginComponent } from '../components/adminlogin/adminlogin.component';
+import { BookcabComponent } from '../components/bookcab/bookcab.component';
 
 export const routes: Routes = [
     {path:'home',component:HomeComponent},
@@ -13,5 +15,7 @@ export const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'register',component:RegisterComponent},
     {path:'admin', component:AdminComponent},
-    {path:'',redirectTo:'/home',pathMatch:'full'},
+    {path:'adminlogin', component:AdminloginComponent},
+    {path:'bookcab', component:BookcabComponent},
+    {path:'',redirectTo:'/register',pathMatch:'full'},
 ];

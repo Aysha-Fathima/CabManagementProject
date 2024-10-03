@@ -13,12 +13,12 @@ namespace taxiRideManagementBackend.Controllers
     [ApiController]
     public class ContactusController : ControllerBase
     {
-        private readonly TaxiRideManagementDbContext _context;
+        private readonly TaxiRideManagementDbContext _context = new TaxiRideManagementDbContext();
 
-        public ContactusController(TaxiRideManagementDbContext context)
-        {
-            _context = context;
-        }
+        //public ContactusController(TaxiRideManagementDbContext context)
+        //{
+        //    _context = context;
+        //}
 
         // GET: api/Contactus
         [HttpGet]
